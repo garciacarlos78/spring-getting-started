@@ -1,4 +1,4 @@
-function getGreeting(){
+$(function (){
 
                 $.ajax({
                     type: 'GET',
@@ -8,4 +8,4 @@ function getGreeting(){
                     }
                  });
 
-            }
+            });
