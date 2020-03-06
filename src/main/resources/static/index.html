@@ -1,16 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <script src="jquery-3.4.1.js"></script>
-        <script src="main.js"></script>
-        <title>Spring Getting Started</title>
-    </head>
-    <body>
-        <h1>Welcome to the Hello World page</h1>
+<head>
+    <meta charset="UTF-8">
+    <script src="jquery-3.4.1.js"></script>
+    <!--        <script src="main.js"></script>-->
+    <script>
+        $(document).ready(function () {
+            $('#get_greeting').click(function (){
 
-        <h4>Introduce your name to receive an awesome greeting</h4>
-        <p>Name: <input type="text" id="name"></p>
-        <button id="get_greeting">Greet me!</button>
-    </body>
+                $.ajax({
+                    type: 'GET',
+                    url: '/',
+                    success: function(greeting) {
+                        $('#greeting_placeholder').append(greeting.name);
+                    }
+                 });
+            });
+        });
+        </script>
+    <title>Spring Getting Started</title>
+</head>
+<body>
+<h1>Welcome to the Hello World page</h1>
+
+<h4>Introduce your name to receive an awesome greeting</h4>
+<p>Name: <input type="text" id="name"></p>
+<button id="get_greeting">Greet me!</button>
+<p id="greeting_placeholder"></p>
+</body>
 </html>
